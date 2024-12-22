@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Black background for elegance */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Image Styling */
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block; /* Center image */
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Elegant shadow */
+        }
+    </style>
+</head>
+<body>
+    <!-- Display the Image -->
+    <img src="beauty2.png" alt="Welcome Image">
+
+    <!-- Include the Audio -->
+    <audio id="audioPlayer" src="jarvis86.mp3"></audio>
+
+    <script>
+        // Select the audio element
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        // Function to play audio
+        function playAudio() {
+            audioPlayer.play()
+                .then(() => {
+                    console.log("Audio played successfully.");
+                })
+                .catch((error) => {
+                    console.error("Audio playback failed:", error);
+                    alert("Error: Audio playback failed. Please check the file or permissions.");
+                });
+        }
+
+        // Add event listener for any key press
+        document.addEventListener('keydown', (event) => {
+            console.log("Key pressed:", event.key);
+            playAudio(); // Play the audio on any button press
+        });
+
+        // Add event listener for remote button "Select"
+        document.addEventListener('click', () => {
+            console.log("Mouse clicked.");
+            playAudio(); // Play the audio on any click event
+        });
+    </script>
+</body>
+</html>
